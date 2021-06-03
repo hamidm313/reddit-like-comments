@@ -3,7 +3,6 @@ import CommentSection from './components/CommentSection'
 import './App.css';
 
 export default class App extends Component {
-
   state = {
     users: [
       {
@@ -23,35 +22,37 @@ export default class App extends Component {
         text: "Lorem Ipsum",
         user: 1,
         comments: [
-          {
-            id: 43,
-            points: 30,
-            createdAt: "2018-03-28T20:16:00.000-04:00",
-            text: "Dolor amen",
-            user: 2,
-            comments: [
-              {
-                id: 422,
-                points: 12,
-                createdAt: "2018-03-28T20:17:00.000-04:00",
-                text: "Vestibulum lorem purus",
-                user: 2,
-                comments: [
-                  // ...
-                ]
-              }
-            ]
-          },
-          {
-            id: 3201,
-            points: 0,
-            createdAt: "2018-03-28T20:17:00.000-04:00",
-            text: "Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales",
-            user: 1,
-            comments: [
-              // ...
-            ]
-          }
+          // ...
+        ]
+      },
+      {
+        id: 43,
+        points: 30,
+        createdAt: "2018-03-28T20:16:00.000-04:00",
+        text: "Dolor amen",
+        user: 2,
+        comments: [
+          // ...
+        ]
+      },
+      {
+        id: 422,
+        points: 12,
+        createdAt: "2018-03-28T20:17:00.000-04:00",
+        text: "Vestibulum lorem purus",
+        user: 2,
+        comments: [
+          // ...
+        ]
+      },
+      {
+        id: 3201,
+        points: 0,
+        createdAt: "2018-03-28T20:17:00.000-04:00",
+        text: "Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales Nullam hendrerit quis arcu sed sodales",
+        user: 1,
+        comments: [
+          // ...
         ]
       },
       {
@@ -79,7 +80,6 @@ export default class App extends Component {
   }
 
   vote(indexArr, val) {
-
     var data = JSON.parse(JSON.stringify(this.state.data))
     var comments = data
     for (let index of indexArr) {

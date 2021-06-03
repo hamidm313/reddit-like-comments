@@ -1,7 +1,6 @@
 import React,  { Component } from 'react';
 
 export default class Comment extends Component {
-
   userLookup = this.userLookup.bind(this);
 
   shouldComponentUpdate(nextProps) {
@@ -39,24 +38,29 @@ export default class Comment extends Component {
   } 
 
   render() {
-
     var optimisticUpdate = this.props.comment.optimisticUpdate ? this.props.comment.optimisticUpdate : 0
 
     return (
     	<div  className="comment">
-        <div className="flex singleComment">
-          <VoteCol 
+        <div className="singleComment table">
+          <div className="tr">
+            <Avatar />
+            <div className="comment-header td">
+              <a className="username">{this.userLookup(this.props.comment.user)}</a>
+              <span className="date">{this.elapsedTime()} ago</span>
+            </div>
+          </div>
+          <div className="tr">
+            <div className="td"></div>
+            <div className="comment-text tr">{this.props.comment.text}</div>
+          </div>
+          <Votes 
+            points={this.props.comment.points}
             optimisticUpdate={optimisticUpdate}
             onUpvote={this.props.onUpvote}
             onDownvote={this.props.onDownvote}
             indexArr={this.props.indexArr}
           />
-    	    <div>
-    	    	<a className="username smallType">{this.userLookup(this.props.comment.user)}</a>
-            <span className="smallType">{this.props.comment.points + optimisticUpdate} points</span>
-            <span className="smallType">{this.elapsedTime()} ago</span>
-    	    	<div>{this.props.comment.text}</div>
-    	    </div>
         </div>
   	    {
           this.props.comment.comments.map((comment, index) =>
@@ -75,8 +79,7 @@ export default class Comment extends Component {
   }
 }
 
-function VoteCol(props) {
-
+function Votes(props) {
   var isUpvoted = props.optimisticUpdate === 1
   var isDownvoted = props.optimisticUpdate === -1
 
@@ -89,13 +92,29 @@ function VoteCol(props) {
   }
 
   return (
-    <div className="voteCol noselect">
-      <div className={isUpvoted ? 'upvote active' : 'upvote'} onClick={onUpvote}>
-        ▲
+    <div className="votes tr noselect">
+      <div className="td"></div>
+      <div className="td">
+        <div id="voters"></div>
+        <span className="likes">{props.points + props.optimisticUpdate} likes</span>
+
+        <div className={"upvote" + (isUpvoted ? ' active' : '')} onClick={onUpvote}>
+          ▲
+        </div>
+        <div className={"downvote" + (isDownvoted ? ' active' : '')} onClick={onDownvote}>
+          ▼
+        </div>
       </div>
-      <div className={isDownvoted ? 'downvote active' : 'downvote'} onClick={onDownvote}>
-        ▼
-      </div>
+    </div>
+  );
+}
+
+
+function Avatar(props) {
+  return (
+    <div className="avatar-container td">
+      <div className="avatar"></div>
+      <div className="centered">NS</div>
     </div>
   );
 }
