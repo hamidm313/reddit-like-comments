@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import CommentSection from './components/CommentSection'
-import './App.css';
+import './comments.css';
 
-export default class App extends Component {
+export default class Comments extends Component {
   state = {
     users: [
       {
